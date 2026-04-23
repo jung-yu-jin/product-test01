@@ -9,6 +9,7 @@ function getColor(num) {
 function generateLotto() {
     let resultDiv = document.getElementById('result');
     resultDiv.innerHTML = '';
+    let allLines = '';
 
     for (let i = 0; i < 5; i++) {
         let numbers = [];
@@ -27,6 +28,7 @@ function generateLotto() {
         });
         line += '</div>';
 
-        resultDiv.innerHTML += line;
+        allLines += line;
     }
+    resultDiv.innerHTML = allLines;
 }
