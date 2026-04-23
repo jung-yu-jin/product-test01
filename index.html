@@ -6,84 +6,7 @@
     <title>회사 소개 + 로또 추천</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            background: linear-gradient(135deg, #eef5ff, #fdfbff);
-            color: #333;
-        }
-        header {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-        header img {
-            width: 80px;
-            margin-bottom: 10px;
-        }
-        .cta-button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 25px;
-            background: white;
-            color: #2575fc;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
-        }
-        nav {
-            background: white;
-            padding: 0.8rem;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #555;
-        }
-        .container {
-            padding: 40px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .section {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-        .section img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-        .lotto-result {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .ball {
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            line-height: 45px;
-            border-radius: 50%;
-            margin: 6px;
-            font-weight: bold;
-            color: white;
-        }
-        .yellow { background: #fbc400; }
-        .blue { background: #69c8f2; }
-        .red { background: #ff7272; }
-        .gray { background: #aaa; }
-        .green { background: #7bc043; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -129,40 +52,7 @@
     </section>
 </div>
 
-<script>
-function getColor(num) {
-    if (num <= 10) return 'yellow';
-    if (num <= 20) return 'blue';
-    if (num <= 30) return 'red';
-    if (num <= 40) return 'gray';
-    return 'green';
-}
-
-function generateLotto() {
-    let resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '';
-
-    for (let i = 0; i < 5; i++) {
-        let numbers = [];
-
-        while (numbers.length < 6) {
-            let num = Math.floor(Math.random() * 45) + 1;
-            if (!numbers.includes(num)) numbers.push(num);
-        }
-
-        numbers.sort((a, b) => a - b);
-
-        let line = '<div>';
-        numbers.forEach(n => {
-            let color = getColor(n);
-            line += `<span class="ball ${color}">${n}</span>`;
-        });
-        line += '</div>';
-
-        resultDiv.innerHTML += line;
-    }
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
